@@ -1,0 +1,15 @@
+{
+    "emeraldwalk.runonsave": {
+      "messages": "[ERROR] Run on save - Run jupytext sync failed",
+      "commands": [
+        {
+          "match": "\\.(ipynb)$",
+          // "match": "\\.(ipynb)$",
+          "notMatch": "\\.venv\\\\.*",
+          "cmd": "uv run jupytext --sync \"${file}\"",
+          "autoShowOutputPanel": "error"
+        }
+      ]
+    },
+    "python.languageServer": "None"
+  }
