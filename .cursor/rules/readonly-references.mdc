@@ -1,0 +1,22 @@
+---
+description: Enforce read-only status for reference directories and prefer .py over .ipynb for langgraph-v1-tutorial
+globs: 
+alwaysApply: true
+---
+
+# Read-Only Reference Directories
+
+To maintain the integrity of reference materials and tutorial code, the following directories are strictly **read-only**.
+
+### Restricted Directories
+- `FinMem-LLM-StockTrading-main/`
+- `langgraph-v1-tutorial/`
+
+### Rules
+1. **Never Write**: Do not create new files or modify existing files within these directories.
+2. **Never Delete**: Do not delete any files or subdirectories within these paths.
+3. **Reference Only**: Use these files solely for reading, analysis, and as a basis for implementation in other parts of the project.
+4. **Prefer Python Files**: When referencing content in `langgraph-v1-tutorial/`, **always read the `.py` version** instead of the `.ipynb` version. The `.ipynb` files are JSON-formatted and consume significantly more tokens. Use the corresponding `.py` file (e.g., read `tutorial.py` instead of `tutorial.ipynb`) for all analysis and code extraction.
+
+### Why?
+These directories contain external reference implementations and tutorial materials that should remain in their original state. Using `.py` files instead of `.ipynb` optimizes token usage and improves processing efficiency. Any modifications should be made in a separate project directory.

@@ -1,0 +1,15 @@
+---
+description: Standards for Windows, PowerShell, and UV package management
+alwaysApply: true
+---
+
+# Environment & Package Management Standards
+
+- **Shell**: Use **PowerShell** for all terminal operations. Avoid Linux-specific commands.
+- **Execution**: Always use `uv run python -m` to execute Python scripts as modules from the project root. Never run `python` directly or execute scripts by path (e.g., `python src/file.py`).
+  - E2E Pipeline Example: `uv run python -m src.pipeline.data_ingestion`
+  - Setup Script Example: `uv run python -m scripts.init_parquet_db`
+- **Package Manager**: Use **uv** exclusively for environment and package management.
+  - **CRITICAL**: Never use `pip install`.
+  - Always use `uv add` for managing dependencies.
+- **Installations**: Always request **explicit user confirmation** before running any command that installs, updates, or modifies packages.

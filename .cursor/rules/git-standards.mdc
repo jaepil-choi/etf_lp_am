@@ -1,0 +1,24 @@
+---
+description: Standards for Git operations to ensure granular commits and user-controlled execution
+globs: 
+alwaysApply: true
+---
+
+# Git Standards
+
+## Granular Staging
+- **Never** use `git add .`, `git add -A`, or `git add *`.
+- **Always** specify individual files or directories explicitly (e.g., `git add src/main.py`).
+- Stage and commit changes **task-by-task** based on the current conversation logic, rather than bundling unrelated changes.
+
+## Execution & Permissions
+- **User Control**: Never attempt to "auto-fix" Git issues or execute chained commands that modify Git state without explicit user interaction.
+- **Manual Confirmation**: For any `git add`, `git commit`, `git push`, or `git branch` command, you must provide the command via a tool call and wait for the user to explicitly click the **"Run"** button in the Cursor UI.
+- **No Force Operations**: Do not use `--force` or other destructive flags unless specifically requested by the user.
+
+## Commit Message Format
+- Use clear, descriptive commit messages (following Conventional Commits if established in the repo).
+- Each commit should represent a single logical unit of work.
+- **Windows/PowerShell Compatibility**: Since we are using PowerShell on Windows, avoid using bash-style heredocs (`cat <<EOF`). Instead, use multiple `-m` flags or PowerShell-compatible multi-line strings.
+  - Example (safe for PowerShell): `git commit -m "feat(scope): summary" -m "detailed description"`
+  - Example (multi-line string): `git commit -m "line 1` followed by `line 2"`
