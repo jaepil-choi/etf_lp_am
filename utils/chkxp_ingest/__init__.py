@@ -29,7 +29,10 @@ __all__ = ["open", "Dataset", "DatasetInfo", "ChkxpConfig"]
 
 logger = logging.getLogger(__name__)
 
-# Default base directory for parquet output (relative to project root).
+# Default base directory for parquet output.  Used only when the caller does
+# not provide an explicit ``output_dir``.  Because this is a *relative* path,
+# it resolves against the caller's CWD — so scripts / notebooks should always
+# pass an explicit ``output_dir`` to avoid surprises.
 _DEFAULT_DB_DIR = Path("data/db/chkxp")
 
 
