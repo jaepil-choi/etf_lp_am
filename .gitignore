@@ -261,3 +261,4 @@ data/
 *.avif
 
 misc/
+langgraph-v1-tutorial/**/*.png
