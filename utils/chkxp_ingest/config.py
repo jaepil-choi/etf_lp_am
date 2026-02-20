@@ -24,7 +24,8 @@ class SourceConfig(BaseModel):
 
     input_path: str = ""
     source_hash: str = ""
-    detected_format: Literal["single_entity", "multi_entity"] = "single_entity"
+    detected_format: Literal["single_entity", "multi_entity", "daily_etf"] = "single_entity"
+    source_files: list[str] = Field(default_factory=list)  # multi-file lineage
 
 
 class MetadataConfig(BaseModel):
@@ -32,11 +33,12 @@ class MetadataConfig(BaseModel):
 
     instrument_codes: list[str] = Field(default_factory=list)
     item_codes: list[str] = Field(default_factory=list)
-    frequency: str = ""  # e.g. "1M", "10S"
+    frequency: str = ""  # e.g. "1M", "10S", "D"
     period_start: str = ""
     period_end: str = ""
     start_time: str = "0900"
     end_time: str = "1515"
+    frequency_type: Literal["intraday", "daily"] = "intraday"
 
 
 class OutputConfig(BaseModel):
@@ -44,6 +46,7 @@ class OutputConfig(BaseModel):
 
     output_dir: str = ""
     output_format: Literal["parquet"] = "parquet"
+    partition_by: list[str] = Field(default_factory=list)  # e.g. ["year"]
 
 
 class EntityInfo(BaseModel):
