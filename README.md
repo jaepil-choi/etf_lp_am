@@ -55,6 +55,12 @@ LP(유동성 공급자)의 핵심 관심사는 **ETF 시장가격이 iNAV(장중
 - **단일 거래일 심층 분석**: 무작위 샘플 날짜에 대해 ETF 종가·기초지수·iNAV를 이중 y축으로 오버레이하고, 매도/매수 거래량, 괴리율·추적오차율을 정밀 분석
 - **전처리 파이프라인**: 괴리율·추적오차율 스케일 정규화, 장중 수익률·iNAV 수익률·기초지수 변화율 파생 변수 생성
 
+![KODEX 200 장중 전체 시계열](outputs/assets/lp_kodex200_intraday_overview.png)
+
+![KODEX 200 단일 거래일 심층 분석](outputs/assets/lp_kodex200_intraday_detail.png)
+
+![TIGER 반도체TOP10 단일 거래일 심층 분석](outputs/assets/lp_tiger_semiconductor_intraday_detail.png)
+
 이 분석은 LP가 아비트라지 기회를 탐지하고 헷지 비용을 산정하는 데 필요한 기초 데이터 인프라를 구축하며, 추후 **실시간 괴리율 모니터링 시스템** 및 **ETF 미스프라이싱 탐지** 방향으로 확장 가능합니다.
 
 ---
@@ -96,6 +102,12 @@ $$r_{i,t} = \alpha_i(t) + \boldsymbol{\beta}_i(t)^\top \mathbf{f}_t + \varepsilo
 - **JKP 팩터 간 상관관계 히트맵**: 팩터 테마 간 다중공선성 확인
 - **주요 ETF 롤링 알파 시계열**: 팩터 설명 후 잔존하는 초과수익의 동태
 - **팩터 노출 시계열**: ETF별 스타일 드리프트 및 팩터 노출의 시변성 시각화
+
+![JKP 팩터 상관관계 히트맵](outputs/assets/am_factor_correlation_heatmap.png)
+
+![롤링 알파 시계열](outputs/assets/am_rolling_alpha.png)
+
+![롤링 베타 시계열 (샘플 ETF)](outputs/assets/am_rolling_beta_sample.png)
 
 ---
 
@@ -170,12 +182,24 @@ $$\text{s.t.} \quad \mathbf{1}^\top w = 1, \quad 0 \le w_i \le 0.10$$
 | EW-EMP | +8.44% | 14.96% | 0.564 | -29.27% | 0.288 | 0.013 | 0.0073 |
 | MV-EMP | +0.23% | 0.90% | 0.259 | -1.08% | 0.217 | 0.409 | 0.0580 |
 
+![누적 수익률 비교](outputs/assets/am_frp_cumulative_returns.png)
+
+![드로다운 경로](outputs/assets/am_frp_drawdowns.png)
+
 **주요 시사점:**
 
 - **FRP-EMP**는 세 전략 중 가장 높은 Sharpe Ratio(0.952)를 달성하며, MDD를 -11.58%로 억제
 - EW-EMP는 절대 수익률(+8.44%)이 가장 높으나 변동성(14.96%)과 MDD(-29.27%)가 모두 최대
 - MV-EMP는 변동성 최소화에 집중하여 수익률(+0.23%)과 Sharpe(0.259)가 모두 낮음
 - **FRP-EMP는 팩터 수준의 리스크를 균등 배분함으로써 리스크 조정 성과 측면에서 명확한 우위**를 보임
+
+![Stage 1 팩터 목표 노출 시계열](outputs/assets/am_frp_factor_allocation.png)
+
+![FRP-EMP 상위 ETF 비중](outputs/assets/am_frp_top_etf_weights.png)
+
+![팩터별 리스크 기여 편차](outputs/assets/am_frp_rc_deviation.png)
+
+![Stage 2 복제 오차 분포](outputs/assets/am_frp_replication_error.png)
 
 **평가 지표 정의:**
 
