@@ -1,8 +1,8 @@
 ---
 title: "팩터 리스크 패리티 EMP"
 subtitle: "한국 ETF 시장의 시간가변 팩터 노출과 2단계 포트폴리오 복제 전략"
-author: "ETF LP/AM 분석 프로젝트"
-date: "2026-02-23"
+author: "최재필"
+date: "2026-02-20"
 lang: ko
 
 format:
