@@ -55,8 +55,6 @@ LP(유동성 공급자)의 핵심 관심사는 **ETF 시장가격이 iNAV(장중
 - **단일 거래일 심층 분석**: 무작위 샘플 날짜에 대해 ETF 종가·기초지수·iNAV를 이중 y축으로 오버레이하고, 매도/매수 거래량, 괴리율·추적오차율을 정밀 분석
 - **전처리 파이프라인**: 괴리율·추적오차율 스케일 정규화, 장중 수익률·iNAV 수익률·기초지수 변화율 파생 변수 생성
 
-![KODEX 200 장중 전체 시계열](outputs/assets/lp_kodex200_intraday_overview.png)
-
 ![KODEX 200 단일 거래일 심층 분석](outputs/assets/lp_kodex200_intraday_detail.png)
 
 ![TIGER 반도체TOP10 단일 거래일 심층 분석](outputs/assets/lp_tiger_semiconductor_intraday_detail.png)
@@ -144,7 +142,7 @@ $$\phi^* = \arg\min_{\phi} \; \phi^\top \Sigma_f \phi - \frac{1}{M} \sum_{k=1}^M
 
 날짜 $t$의 베타 행렬 $B_t \in \mathbb{R}^{N \times M}$을 이용, 팩터 추적오차 최소화:
 
-$$w^* = \arg\min_{w} \; (B_t^\top w - \phi^*)^\top \Sigma_f (B_t^\top w - \phi^*)$$
+$$w^* = \arg\min_{w} \; (B_t^\top w - \phi^{*})^\top \Sigma_f (B_t^\top w - \phi^{*})$$
 
 $$\text{s.t.} \quad \mathbf{1}^\top w = 1, \quad 0 \le w_i \le 0.10$$
 
