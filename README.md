@@ -1,5 +1,7 @@
 # ETF Factor Exposure Analysis & Factor Risk Parity EMP
 
+> 📄 **리포트를 더 편하게 읽으려면**: [HTML 리포트 보기](https://html-preview.github.io/?url=https://github.com/jaepil-choi/etf_lp_am/blob/master/docs/report/etf-am-frp-emp.html)
+
 한국 ETF 시장을 **LP(유동성 공급자) 관점**과 **AM(자산운용사) 관점** 두 가지 시각에서 분석하는 프로젝트입니다.  
 ETF의 시간가변적 팩터 노출을 추정하고, 이를 기반으로 **Factor Risk Parity EMP(ETF Managed Portfolio)** 전략을 구성합니다.
 
